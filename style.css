@@ -1,0 +1,120 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+input, button, textarea, select {
+  font: inherit;
+}
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+:root {
+  --ff-base: 'Montserrat', sans-serif;
+  --ff-accent: 'Fraunces', serif;
+  --fw-base: 500;
+  --fw-bold: 700;
+  
+  --color-darkCyan: hsl(158, 36%, 37%);
+   --color-very-darkCyan: hsl(158, 36%, 20%);
+  --color-cream: hsl(30, 38%, 92%);
+  --color-darkBlue: hsl(212, 21%, 14%);
+  --color-grayishBlue: hsl(228, 12%, 48%);
+  --color-white: hsl(0, 0%, 100%);
+}
+
+body {
+  background-color: var(--color-cream);
+  margin: 1rem;
+  font-family: var(--ff-base);
+  font-weight: var(--fw-base);
+  display: grid;
+  place-content: center;
+  height: 100vh;
+}
+
+.product {
+  --content-padding: 1.5rem;
+  --content-spacing: 1rem;
+  
+  display: grid;
+  background-color: var(--color-white);
+  color: var(--color-grayishBlue);
+  border-radius: 0.7rem;
+  overflow: hidden;
+  max-width: 700px;
+}
+
+@media (min-width:600px) {
+  .product {
+    grid-template-columns: 1fr 1fr;
+    --content-padding: 2rem;
+  }
+}
+
+.product__content {
+  display: grid;
+  padding: var(--content-padding);
+  gap: var(--content-spacing);
+}
+
+.product__category {
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+}
+
+.product__title {
+  font-family: var(--ff-accent);
+  font-size: 2rem;
+  color: var(--color-darkBlue);
+  line-height: 1;
+}
+
+.product__price {
+  display: flex;
+  align-items: center;
+  gap: var(--content-spacing);
+}
+
+.current-price {
+  font-family: var(--ff-accent);
+  font-size: 2rem;
+  color: var(--color-darkCyan);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--content-spacing);
+  background-color: var(--color-darkCyan);
+  color: var(--color-white);
+  font-weight: var(--fw-bold);
+  border: none;
+  border-radius: 0.7rem;
+  padding: 1em;
+}
+
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.button:is(:hover, :focus) {
+  background-color: var(--color-very-darkCyan);
+}
